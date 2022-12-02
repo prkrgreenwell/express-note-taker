@@ -25,7 +25,7 @@ const readAndAppend = (content, file) => {
 // return all saved notes as JSON
 notes.get("/", (req, res) => {
   console.info(`${req.method} request received for notes`);
-  readFromFile("../db/db.json").then((data) => res.json(JSON.parse(data)));
+  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 //TODO: POST /api/notes should recieve a new note to save on
 // the request and add it ot the db.json file and then
@@ -46,5 +46,5 @@ notes.post("/", (req, res) => {
     res.error("Error in adding note");
   }
 });
-module.export = notes;
+module.exports = notes;
 // TODO: find a way to give each note a unique id when it's saved
